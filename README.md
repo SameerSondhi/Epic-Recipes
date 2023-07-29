@@ -1,5 +1,5 @@
 # Epic Recipes
-> A mobile responsive UI where users can search for recipes, browse results and view recipe details, ingredients, instructions and what wines the recipe pairs well with!
+> A mobile responsive UI where users can search for recipes, browse results and view recipe details, ingredients, instructions and accompanying wine recommendations.
 
 ## Table of Contents
 * [General Info](#general-information)

@@ -51,7 +51,7 @@ export default function MobileDetailTabs() {
   const [wines, setWines] = useState('')
   const { id } = useParams()
 
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

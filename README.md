@@ -38,7 +38,7 @@ Ready features:
 
 
 ## Live Link and Screenshots
-Coming soon!
+Link: https://epic-recipes-2.vercel.app/
 
 
 ## Usage

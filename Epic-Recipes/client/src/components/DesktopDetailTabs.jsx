@@ -9,6 +9,7 @@ import Ingredients from './RecipeIngredients';
 import Directions from './RecipeDirections';
 import Description from './RecipeDescription';
 import WinePairing from './WinePairing';
+import Credits from './Credits';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,6 +50,9 @@ export default function DesktopDetailTabs() {
   const [directions, setDirections] = useState('');
   const [description, setDescription] = useState('')
   const [wines, setWines] = useState('')
+  const [sourceName, setSourceName] = useState('')
+  const [sourceUrl, setSourceUrl] = useState('')
+  
   const { id } = useParams()
 
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -66,6 +70,8 @@ export default function DesktopDetailTabs() {
         setDirections(response.data.instructions);
         setDescription(response.data.summary)
         setWines(response.data.winePairing.pairingText)
+        setSourceName(response.data.sourceName)
+        setSourceUrl(response.data.sourceUrl)
       })
       .catch((error) => { console.log("This is the error message ", error) })
 
@@ -80,6 +86,7 @@ export default function DesktopDetailTabs() {
           <Tab label="Ingredients" {...a11yProps(1)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'15px'}}/>
           <Tab label="Directions" {...a11yProps(2)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'15px'}} />
           <Tab label="Pairs Well With" {...a11yProps(3)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'15px'}} />
+          <Tab label="Credits" {...a11yProps(4)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'15px'}} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}

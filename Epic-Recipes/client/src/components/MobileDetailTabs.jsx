@@ -79,7 +79,10 @@ export default function MobileDetailTabs() {
   return (
     <Box sx={{ width: '100%', bgcolor: '#1F2021' }}> {/* Added background color */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered >
+        <Tabs value={value} onChange={handleChange} variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+        aria-label="scrollable force tabs example" centered >
         <Tab label="Description" {...a11yProps(0)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}} />
           <Tab label="Ingredients" {...a11yProps(1)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}}/>
           <Tab label="Directions" {...a11yProps(2)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}} />

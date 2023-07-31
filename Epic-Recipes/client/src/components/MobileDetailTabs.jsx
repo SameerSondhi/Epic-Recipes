@@ -9,6 +9,7 @@ import Ingredients from './RecipeIngredients';
 import Directions from './RecipeDirections';
 import Description from './RecipeDescription';
 import WinePairing from './WinePairing';
+import Credits from './Credits';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,6 +50,8 @@ export default function MobileDetailTabs() {
   const [directions, setDirections] = useState('');
   const [description, setDescription] = useState('')
   const [wines, setWines] = useState('')
+  const [sourceName, setSourceName] = useState('')
+  const [sourceUrl, setSourceUrl] = useState('')
   const { id } = useParams()
 
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -65,6 +68,8 @@ export default function MobileDetailTabs() {
         setDirections(response.data.instructions);
         setDescription(response.data.summary)
         setWines(response.data.winePairing.pairingText)
+        setSourceName(response.data.sourceName)
+        setSourceUrl(response.data.sourceUrl)
       })
       .catch((error) => { console.log("This is the error message ", error) })
 
@@ -79,6 +84,7 @@ export default function MobileDetailTabs() {
           <Tab label="Ingredients" {...a11yProps(1)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}}/>
           <Tab label="Directions" {...a11yProps(2)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}} />
           <Tab label="Pairs Well With" {...a11yProps(3)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}} />
+          <Tab label="Credits" {...a11yProps(4)} sx={{color:'#FF8000', fontFamily:'Alkatra', fontSize:'10px'}} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}
@@ -112,6 +118,14 @@ export default function MobileDetailTabs() {
         alignItems: 'center' // Center the content vertically
       }} >
         <WinePairing wines={wines} /> {/* Pass the value state to the Directions component */}
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}
+      style={{
+        display: 'flex',
+        justifyContent: 'center', // Center the content horizontally
+        alignItems: 'center' // Center the content vertically
+      }} >
+        <Credits sourceName={sourceName} sourceUrl={sourceUrl} />  {/* Pass the value state to the Directions component */}
       </CustomTabPanel>
       <br />
     </Box>

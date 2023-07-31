@@ -114,6 +114,14 @@ export default function DesktopDetailTabs() {
       }} >
         <WinePairing wines={wines} /> {/* Pass the value state to the Directions component */}
       </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}
+      style={{
+        display: 'flex',
+        justifyContent: 'center', // Center the content horizontally
+        alignItems: 'center' // Center the content vertically
+      }} >
+        <Credits sourceName={sourceName} sourceUrl={sourceUrl} />  {/* Pass the value state to the Directions component */}
+      </CustomTabPanel>
       <br />
     </Box>
   );

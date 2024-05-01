@@ -38,7 +38,7 @@ Ready features:
 
 
 ## Live Link and Screenshots
-Coming soon!
+![Screenshot](EpicRecipes.jpeg)
 
 
 ## Usage
